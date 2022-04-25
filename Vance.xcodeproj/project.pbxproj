@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 243829A928153CEB000EAB4C /* VNErrorFactory.m */; };
+		2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */; };
+		24E8A05E2815814100759EA3 /* VNVideoLinkExtractorForFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */; };
+		24E8A066281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A065281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m */; };
+		24E8A06A28159AC900759EA3 /* VNVideoPageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */; };
+		24E8A06F2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */; };
+		24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7E2280C70D20009B917 /* VNAppDelegate.m */; };
+		24F6C7E6280C70D20009B917 /* VNSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7E5280C70D20009B917 /* VNSceneDelegate.m */; };
+		24F6C7EE280C70D50009B917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F6C7ED280C70D50009B917 /* Assets.xcassets */; };
+		24F6C7F4280C70D50009B917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7F3280C70D50009B917 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		243829A828153CEB000EAB4C /* VNErrorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNErrorFactory.h; sourceTree = "<group>"; };
+		243829A928153CEB000EAB4C /* VNErrorFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNErrorFactory.m; sourceTree = "<group>"; };
+		243829AC28157F03000EAB4C /* VNVideoLinkExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractor.h; sourceTree = "<group>"; };
+		2458149B281411C900D21AA0 /* VNDumbLinkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNDumbLinkViewController.h; sourceTree = "<group>"; };
+		2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNDumbLinkViewController.m; sourceTree = "<group>"; };
+		24E8A05C2815814100759EA3 /* VNVideoLinkExtractorForFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractorForFormats.h; sourceTree = "<group>"; };
+		24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoLinkExtractorForFormats.m; sourceTree = "<group>"; };
+		24E8A064281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractorForAdaptiveFormats.h; sourceTree = "<group>"; };
+		24E8A065281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoLinkExtractorForAdaptiveFormats.m; sourceTree = "<group>"; };
+		24E8A06828159AC900759EA3 /* VNVideoPageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoPageLoader.h; sourceTree = "<group>"; };
+		24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoPageLoader.m; sourceTree = "<group>"; };
+		24E8A06D2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractorForAllFormats.h; sourceTree = "<group>"; };
+		24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoLinkExtractorForAllFormats.m; sourceTree = "<group>"; };
+		24F6C7DE280C70D20009B917 /* Vance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F6C7E1280C70D20009B917 /* VNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNAppDelegate.h; sourceTree = "<group>"; };
+		24F6C7E2280C70D20009B917 /* VNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNAppDelegate.m; sourceTree = "<group>"; };
+		24F6C7E4280C70D20009B917 /* VNSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNSceneDelegate.h; sourceTree = "<group>"; };
+		24F6C7E5280C70D20009B917 /* VNSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNSceneDelegate.m; sourceTree = "<group>"; };
+		24F6C7ED280C70D50009B917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24F6C7F2280C70D50009B917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F6C7F3280C70D50009B917 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24F6C7DB280C70D20009B917 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		242A004D280CA49100DCA7F5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				242A004F280CA4BB00DCA7F5 /* SceneDelegate */,
+				242A004E280CA4B000DCA7F5 /* AppDelegate */,
+				24F6C7F3280C70D50009B917 /* main.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		242A004E280CA4B000DCA7F5 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				24F6C7E1280C70D20009B917 /* VNAppDelegate.h */,
+				24F6C7E2280C70D20009B917 /* VNAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		242A004F280CA4BB00DCA7F5 /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				24F6C7E4280C70D20009B917 /* VNSceneDelegate.h */,
+				24F6C7E5280C70D20009B917 /* VNSceneDelegate.m */,
+			);
+			path = SceneDelegate;
+			sourceTree = "<group>";
+		};
+		242A0064280CB74600DCA7F5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2458149A2814119F00D21AA0 /* DumbLinkViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		243829A728153CD3000EAB4C /* ErrorFactory */ = {
+			isa = PBXGroup;
+			children = (
+				243829A828153CEB000EAB4C /* VNErrorFactory.h */,
+				243829A928153CEB000EAB4C /* VNErrorFactory.m */,
+			);
+			path = ErrorFactory;
+			sourceTree = "<group>";
+		};
+		2458149A2814119F00D21AA0 /* DumbLinkViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2458149B281411C900D21AA0 /* VNDumbLinkViewController.h */,
+				2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */,
+			);
+			path = DumbLinkViewController;
+			sourceTree = "<group>";
+		};
+		245814A12814A60900D21AA0 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				243829A728153CD3000EAB4C /* ErrorFactory */,
+				24E8A06728159AB200759EA3 /* VideoPageLoader */,
+				24E8A06B28159F6B00759EA3 /* VideoLinkExtractor */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		24E8A05B281580FD00759EA3 /* VideoLinkExtractorForFormats */ = {
+			isa = PBXGroup;
+			children = (
+				24E8A05C2815814100759EA3 /* VNVideoLinkExtractorForFormats.h */,
+				24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */,
+			);
+			path = VideoLinkExtractorForFormats;
+			sourceTree = "<group>";
+		};
+		24E8A063281591A900759EA3 /* VideoLinkExtractorForAdaptiveFormats */ = {
+			isa = PBXGroup;
+			children = (
+				24E8A064281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.h */,
+				24E8A065281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m */,
+			);
+			path = VideoLinkExtractorForAdaptiveFormats;
+			sourceTree = "<group>";
+		};
+		24E8A06728159AB200759EA3 /* VideoPageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				24E8A06828159AC900759EA3 /* VNVideoPageLoader.h */,
+				24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */,
+			);
+			path = VideoPageLoader;
+			sourceTree = "<group>";
+		};
+		24E8A06B28159F6B00759EA3 /* VideoLinkExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				243829AC28157F03000EAB4C /* VNVideoLinkExtractor.h */,
+				24E8A05B281580FD00759EA3 /* VideoLinkExtractorForFormats */,
+				24E8A063281591A900759EA3 /* VideoLinkExtractorForAdaptiveFormats */,
+				24E8A06C2815A1CB00759EA3 /* VideoLinkExtractorForAllFormats */,
+			);
+			path = VideoLinkExtractor;
+			sourceTree = "<group>";
+		};
+		24E8A06C2815A1CB00759EA3 /* VideoLinkExtractorForAllFormats */ = {
+			isa = PBXGroup;
+			children = (
+				24E8A06D2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.h */,
+				24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */,
+			);
+			path = VideoLinkExtractorForAllFormats;
+			sourceTree = "<group>";
+		};
+		24F6C7D5280C70D20009B917 = {
+			isa = PBXGroup;
+			children = (
+				24F6C7E0280C70D20009B917 /* Vance */,
+				24F6C7DF280C70D20009B917 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24F6C7DF280C70D20009B917 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24F6C7DE280C70D20009B917 /* Vance.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24F6C7E0280C70D20009B917 /* Vance */ = {
+			isa = PBXGroup;
+			children = (
+				242A004D280CA49100DCA7F5 /* Application */,
+				242A0064280CB74600DCA7F5 /* ViewControllers */,
+				245814A12814A60900D21AA0 /* Objects */,
+				24F6C7ED280C70D50009B917 /* Assets.xcassets */,
+				24F6C7F2280C70D50009B917 /* Info.plist */,
+			);
+			path = Vance;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24F6C7DD280C70D20009B917 /* Vance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F6C7F7280C70D50009B917 /* Build configuration list for PBXNativeTarget "Vance" */;
+			buildPhases = (
+				24F6C7DA280C70D20009B917 /* Sources */,
+				24F6C7DB280C70D20009B917 /* Frameworks */,
+				24F6C7DC280C70D20009B917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vance;
+			productName = Vance;
+			productReference = 24F6C7DE280C70D20009B917 /* Vance.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24F6C7D6280C70D20009B917 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = VN;
+				LastUpgradeCheck = 1330;
+				ORGANIZATIONNAME = "Egor and the fucked up";
+				TargetAttributes = {
+					24F6C7DD280C70D20009B917 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 24F6C7D9280C70D20009B917 /* Build configuration list for PBXProject "Vance" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24F6C7D5280C70D20009B917;
+			productRefGroup = 24F6C7DF280C70D20009B917 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24F6C7DD280C70D20009B917 /* Vance */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24F6C7DC280C70D20009B917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F6C7EE280C70D50009B917 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24F6C7DA280C70D20009B917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E8A06A28159AC900759EA3 /* VNVideoPageLoader.m in Sources */,
+				243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */,
+				24E8A05E2815814100759EA3 /* VNVideoLinkExtractorForFormats.m in Sources */,
+				24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */,
+				24F6C7F4280C70D50009B917 /* main.m in Sources */,
+				24E8A066281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m in Sources */,
+				2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */,
+				24F6C7E6280C70D20009B917 /* VNSceneDelegate.m in Sources */,
+				24E8A06F2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		24F6C7F5280C70D50009B917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		24F6C7F6280C70D50009B917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24F6C7F8280C70D50009B917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Vance/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.prismade.Vance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		24F6C7F9280C70D50009B917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Vance/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.prismade.Vance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24F6C7D9280C70D20009B917 /* Build configuration list for PBXProject "Vance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F6C7F5280C70D50009B917 /* Debug */,
+				24F6C7F6280C70D50009B917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24F6C7F7280C70D50009B917 /* Build configuration list for PBXNativeTarget "Vance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F6C7F8280C70D50009B917 /* Debug */,
+				24F6C7F9280C70D50009B917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24F6C7D6280C70D20009B917 /* Project object */;
+}
