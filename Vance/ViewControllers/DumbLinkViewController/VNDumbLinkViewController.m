@@ -12,6 +12,7 @@
 
 
 NSString * const VNURLIsAvailableFromPasteboard = @"VNURLIsAvailableFromPasteboard";
+NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPasteboard";
 
 
 @interface VNDumbLinkViewController ()
@@ -92,6 +93,7 @@ NSString * const VNURLIsAvailableFromPasteboard = @"VNURLIsAvailableFromPasteboa
     _videos = nil;
     _pageLoader = [[VNVideoPageLoader alloc] init];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsAvailableInPasteboardNotification:) name:VNURLIsAvailableFromPasteboard object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsUnavailableInPasteboardNotification:) name:VNURLIsUnavailableFromPasteboard object:nil];
 }
 
 
@@ -128,6 +130,11 @@ NSString * const VNURLIsAvailableFromPasteboard = @"VNURLIsAvailableFromPasteboa
 
 - (void)handleURLIsAvailableInPasteboardNotification:(NSNotification *)notification {
     _pasteButton.enabled = YES;
+}
+
+
+- (void)handleURLIsUnavailableInPasteboardNotification:(NSNotification *)notification {
+    _pasteButton.enabled = NO;
 }
 
 

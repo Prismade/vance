@@ -13,6 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString * const VNURLIsAvailableFromPasteboard;
+FOUNDATION_EXPORT NSString * const VNURLIsUnavailableFromPasteboard;
 
 @interface VNDumbLinkViewController : UIViewController
 

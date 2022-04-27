@@ -23,7 +23,9 @@
 
 - (void)sceneWillEnterForeground:(UIScene *)scene {
     if (UIPasteboard.generalPasteboard.hasURLs) {
-        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:self];
+    } else {
+        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsUnavailableFromPasteboard object:self];
     }
 }
 
