@@ -8,12 +8,20 @@
 
 #import "VNVideoPageLoader.h"
 #import "VNErrorFactory.h"
-
-
-NSArray<NSString *> * const VNYouTubeURLPrefixes = @[@"https://youtu.be/", @"https://youtube.com/watch"];
+#import "VNLinkValidator.h"
 
 
 @implementation VNVideoPageLoader
+
+
+- (instancetype)initWithLinkValidator:(VNLinkValidator *)validator {
+    self = [super init];
+    if (self) {
+        _validator = validator;
+    }
+    return self;
+}
+
 
 - (void)loadWebPageWithVideoFromURLString:(NSString *)URLString completion:(VNVideoWebPageCompletionHandler)completionHandler {
     NSURL * url = [NSURL URLWithString:URLString];
@@ -27,7 +35,7 @@ NSArray<NSString *> * const VNYouTubeURLPrefixes = @[@"https://youtu.be/", @"htt
 
 
 - (void)loadWebPageWithVideoFromURL:(NSURL *)URL completion:(VNVideoWebPageCompletionHandler)completionHandler {
-    if (![self validateVideoURL:URL]) {
+    if (_validator && ![_validator validateVideoURL:URL]) {
         NSError * error = [VNErrorFactory wrongYouTubeURLFormat];
         completionHandler(nil, error);
         return;
@@ -46,20 +54,6 @@ NSArray<NSString *> * const VNYouTubeURLPrefixes = @[@"https://youtu.be/", @"htt
         }
     }];
     [task resume];
-}
-
-
-- (BOOL)validateVideoURLString:(NSString *)URLString {
-    BOOL hasPrefix = NO;
-    for (NSString * prefix in VNYouTubeURLPrefixes) {
-        hasPrefix |= [URLString hasPrefix:prefix];
-    }
-    return hasPrefix;
-}
-
-
-- (BOOL)validateVideoURL:(NSURL *)URL {
-    return [self validateVideoURLString:URL.absoluteString];
 }
 
 

@@ -8,14 +8,17 @@
 
 @import Foundation;
 
+@class VNLinkValidator;
+
 typedef void(^VNVideoWebPageCompletionHandler)(NSDictionary * _Nullable JSONObject, NSError * _Nullable error);
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT NSArray<NSString *> * const VNYouTubeURLPrefixes;
-
 @interface VNVideoPageLoader : NSObject
 
+@property (nonatomic, nullable) VNLinkValidator * validator;
+
+- (instancetype)initWithLinkValidator:(VNLinkValidator *)validator;
 - (void)loadWebPageWithVideoFromURLString:(NSString *)URLString completion:(VNVideoWebPageCompletionHandler)completionHandler;
 - (void)loadWebPageWithVideoFromURL:(NSURL *)URL completion:(VNVideoWebPageCompletionHandler)completionHandler;
 

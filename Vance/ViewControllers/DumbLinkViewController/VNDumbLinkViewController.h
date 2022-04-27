@@ -10,6 +10,8 @@
 @import AVKit;
 @import AVFoundation;
 
+@class VNVideoPageLoader;
+
 NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString * const VNURLIsAvailableFromPasteboard;
@@ -17,6 +19,7 @@ FOUNDATION_EXPORT NSString * const VNURLIsUnavailableFromPasteboard;
 
 @interface VNDumbLinkViewController : UIViewController
 
+@property (nonatomic, nullable) VNVideoPageLoader * pageLoader;
 @property (nonatomic) UIView * videoContainer;
 @property (nonatomic) UILabel * hintLabel;
 @property (nonatomic) UITextField * linkTextField;

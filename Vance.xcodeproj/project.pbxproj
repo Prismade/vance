@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24026ED72819DCD2006160B6 /* VNLinkValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24026ED62819DCD2006160B6 /* VNLinkValidator.m */; };
 		243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 243829A928153CEB000EAB4C /* VNErrorFactory.m */; };
 		2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */; };
 		24E8A05E2815814100759EA3 /* VNVideoLinkExtractorForFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24026ED52819DCD2006160B6 /* VNLinkValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNLinkValidator.h; sourceTree = "<group>"; };
+		24026ED62819DCD2006160B6 /* VNLinkValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNLinkValidator.m; sourceTree = "<group>"; };
 		243829A828153CEB000EAB4C /* VNErrorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNErrorFactory.h; sourceTree = "<group>"; };
 		243829A928153CEB000EAB4C /* VNErrorFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNErrorFactory.m; sourceTree = "<group>"; };
 		243829AC28157F03000EAB4C /* VNVideoLinkExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractor.h; sourceTree = "<group>"; };
@@ -54,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24026ED42819DCC4006160B6 /* LinkValidator */ = {
+			isa = PBXGroup;
+			children = (
+				24026ED52819DCD2006160B6 /* VNLinkValidator.h */,
+				24026ED62819DCD2006160B6 /* VNLinkValidator.m */,
+			);
+			path = LinkValidator;
+			sourceTree = "<group>";
+		};
 		242A004D280CA49100DCA7F5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				243829A728153CD3000EAB4C /* ErrorFactory */,
+				24026ED42819DCC4006160B6 /* LinkValidator */,
 				24E8A06728159AB200759EA3 /* VideoPageLoader */,
 				24E8A06B28159F6B00759EA3 /* VideoLinkExtractor */,
 			);
@@ -265,6 +278,7 @@
 			files = (
 				24E8A06A28159AC900759EA3 /* VNVideoPageLoader.m in Sources */,
 				243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */,
+				24026ED72819DCD2006160B6 /* VNLinkValidator.m in Sources */,
 				24E8A05E2815814100759EA3 /* VNVideoLinkExtractorForFormats.m in Sources */,
 				24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */,
 				24F6C7F4280C70D50009B917 /* main.m in Sources */,

@@ -8,9 +8,27 @@
 
 #import "VNSceneDelegate.h"
 #import "VNDumbLinkViewController.h"
+#import "VNLinkValidator.h"
+#import "VNVideoPageLoader.h"
+
+
+@interface VNSceneDelegate ()
+
+@property (nonatomic) VNLinkValidator * linkValidator;
+
+@end
 
 
 @implementation VNSceneDelegate
+
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _linkValidator = [[VNLinkValidator alloc] init];
+    }
+    return self;
+}
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
@@ -32,6 +50,8 @@
 
 - (void)openDumbLinkViewControllerWithWindowScene:(UIWindowScene *)windowScene {
     VNDumbLinkViewController * viewController = [[VNDumbLinkViewController alloc] init];
+
+    viewController.pageLoader = [[VNVideoPageLoader alloc] initWithLinkValidator:_linkValidator];
     _window.rootViewController = viewController;
     [_window makeKeyAndVisible];
     _window.windowScene = windowScene;

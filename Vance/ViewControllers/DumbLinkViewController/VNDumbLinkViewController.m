@@ -20,7 +20,6 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 @property (nonatomic, nullable) AVQueuePlayer * player;
 @property (nonatomic, nullable) AVPlayerViewController * playerViewController;
 @property (nonatomic, nullable) NSDictionary * videos;
-@property (nonatomic) VNVideoPageLoader * pageLoader;
 
 @end
 
@@ -91,7 +90,6 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
     _player = [AVQueuePlayer queuePlayerWithItems:@[]];
     _playerViewController.player = _player;
     _videos = nil;
-    _pageLoader = [[VNVideoPageLoader alloc] init];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsAvailableInPasteboardNotification:) name:VNURLIsAvailableFromPasteboard object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsUnavailableInPasteboardNotification:) name:VNURLIsUnavailableFromPasteboard object:nil];
 }
