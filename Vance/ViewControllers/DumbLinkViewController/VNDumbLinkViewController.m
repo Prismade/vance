@@ -44,6 +44,7 @@
     _linkTextField.translatesAutoresizingMaskIntoConstraints = NO;
     _linkTextField.borderStyle = UITextBorderStyleRoundedRect;
     _linkTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _linkTextField.keyboardType = UIKeyboardTypeURL;
     [_linkTextField addTarget:self action:@selector(handleLinkTextFieldEditingChangedFromSender:) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:_linkTextField];
 
