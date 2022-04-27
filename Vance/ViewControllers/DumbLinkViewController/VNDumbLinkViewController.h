@@ -12,11 +12,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT NSString * const VNURLIsAvailableFromPasteboard;
+
 @interface VNDumbLinkViewController : UIViewController
 
 @property (nonatomic) UIView * videoContainer;
 @property (nonatomic) UILabel * hintLabel;
 @property (nonatomic) UITextField * linkTextField;
+@property (nonatomic) UIButton * pasteButton;
 @property (nonatomic) UIButton * openButton;
 
 @end

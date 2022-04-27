@@ -21,6 +21,12 @@
     [self openDumbLinkViewControllerWithWindowScene:windowScene];
 }
 
+- (void)sceneWillEnterForeground:(UIScene *)scene {
+    if (UIPasteboard.generalPasteboard.hasURLs) {
+        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:nil];
+    }
+}
+
 
 - (void)openDumbLinkViewControllerWithWindowScene:(UIWindowScene *)windowScene {
     VNDumbLinkViewController * viewController = [[VNDumbLinkViewController alloc] init];
