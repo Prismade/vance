@@ -40,7 +40,7 @@
 }
 
 - (void)sceneWillEnterForeground:(UIScene *)scene {
-    if (UIPasteboard.generalPasteboard.hasURLs) {
+    if (UIPasteboard.generalPasteboard.hasURLs && [_linkValidator validateVideoURL:UIPasteboard.generalPasteboard.URL]) {
         [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:self];
     } else {
         [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsUnavailableFromPasteboard object:self];
