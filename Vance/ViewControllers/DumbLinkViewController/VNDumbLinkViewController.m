@@ -88,6 +88,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
     [super viewDidLoad];
     [self instantiateConstraints];
     _player = [AVQueuePlayer queuePlayerWithItems:@[]];
+    _player.audiovisualBackgroundPlaybackPolicy = AVPlayerAudiovisualBackgroundPlaybackPolicyContinuesIfPossible;
     _playerViewController.player = _player;
     _videos = nil;
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsAvailableInPasteboardNotification:) name:VNURLIsAvailableFromPasteboard object:nil];
