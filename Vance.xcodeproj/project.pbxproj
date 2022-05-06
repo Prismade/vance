@@ -15,7 +15,6 @@
 		24E8A06A28159AC900759EA3 /* VNVideoPageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */; };
 		24E8A06F2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */; };
 		24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7E2280C70D20009B917 /* VNAppDelegate.m */; };
-		24F6C7E6280C70D20009B917 /* VNSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7E5280C70D20009B917 /* VNSceneDelegate.m */; };
 		24F6C7EE280C70D50009B917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F6C7ED280C70D50009B917 /* Assets.xcassets */; };
 		24F6C7F4280C70D50009B917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7F3280C70D50009B917 /* main.m */; };
 /* End PBXBuildFile section */
@@ -39,8 +38,6 @@
 		24F6C7DE280C70D20009B917 /* Vance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F6C7E1280C70D20009B917 /* VNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNAppDelegate.h; sourceTree = "<group>"; };
 		24F6C7E2280C70D20009B917 /* VNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNAppDelegate.m; sourceTree = "<group>"; };
-		24F6C7E4280C70D20009B917 /* VNSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNSceneDelegate.h; sourceTree = "<group>"; };
-		24F6C7E5280C70D20009B917 /* VNSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNSceneDelegate.m; sourceTree = "<group>"; };
 		24F6C7ED280C70D50009B917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24F6C7F2280C70D50009B917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F6C7F3280C70D50009B917 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,7 +66,6 @@
 		242A004D280CA49100DCA7F5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				242A004F280CA4BB00DCA7F5 /* SceneDelegate */,
 				242A004E280CA4B000DCA7F5 /* AppDelegate */,
 				24F6C7F3280C70D50009B917 /* main.m */,
 			);
@@ -83,15 +79,6 @@
 				24F6C7E2280C70D20009B917 /* VNAppDelegate.m */,
 			);
 			path = AppDelegate;
-			sourceTree = "<group>";
-		};
-		242A004F280CA4BB00DCA7F5 /* SceneDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				24F6C7E4280C70D20009B917 /* VNSceneDelegate.h */,
-				24F6C7E5280C70D20009B917 /* VNSceneDelegate.m */,
-			);
-			path = SceneDelegate;
 			sourceTree = "<group>";
 		};
 		242A0064280CB74600DCA7F5 /* ViewControllers */ = {
@@ -284,7 +271,6 @@
 				24F6C7F4280C70D50009B917 /* main.m in Sources */,
 				24E8A066281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m in Sources */,
 				2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */,
-				24F6C7E6280C70D20009B917 /* VNSceneDelegate.m in Sources */,
 				24E8A06F2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

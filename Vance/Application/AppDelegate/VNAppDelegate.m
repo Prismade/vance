@@ -7,27 +7,62 @@
 //
 
 #import "VNAppDelegate.h"
+#import "VNLinkValidator.h"
+#import "VNDumbLinkViewController.h"
+#import "VNVideoPageLoader.h"
+
+
+@interface VNAppDelegate ()
+
+@property (nonatomic) VNLinkValidator * linkValidator;
+
+@end
 
 
 @implementation VNAppDelegate
 
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _linkValidator = [[VNLinkValidator alloc] init];
+    }
+    return self;
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    [self setupAudioSession];
+    [self openDumbLinkViewController];
+    return YES;
+}
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    if (UIPasteboard.generalPasteboard.hasURLs && [_linkValidator validateVideoURL:UIPasteboard.generalPasteboard.URL]) {
+        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:self];
+    } else {
+        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsUnavailableFromPasteboard object:self];
+    }
+}
+
+
+- (void)setupAudioSession {
     AVAudioSession * session = AVAudioSession.sharedInstance;
     NSError * error;
     [session setCategory:AVAudioSessionCategoryPlayback error:&error];
     if (error) {
         NSLog(@"%@", error.localizedDescription);
     }
-    return YES;
 }
 
 
-#pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+- (void)openDumbLinkViewController {
+    VNDumbLinkViewController * viewController = [[VNDumbLinkViewController alloc] init];
+    viewController.pageLoader = [[VNVideoPageLoader alloc] initWithLinkValidator:_linkValidator];
+    _window.rootViewController = viewController;
+    [_window makeKeyAndVisible];
 }
 
 
