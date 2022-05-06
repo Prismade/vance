@@ -35,12 +35,18 @@
     _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [self setupAudioSession];
     [self openDumbLinkViewController];
+    [self checkPasteboardForURLAndPostNotification];
     return YES;
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    if (UIPasteboard.generalPasteboard.hasURLs && [_linkValidator validateVideoURL:UIPasteboard.generalPasteboard.URL]) {
+    [self checkPasteboardForURLAndPostNotification];
+}
+
+
+- (void)checkPasteboardForURLAndPostNotification {
+    if (UIPasteboard.generalPasteboard.hasURLs) {
         [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:self];
     } else {
         [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsUnavailableFromPasteboard object:self];
