@@ -201,9 +201,9 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
         });
     } else if (JSONObject) {
         _videos = [VNVideoLinkExtractorForAllFormats extractVideoLinksFromJSONObject:JSONObject];
-        NSURL * url = _videos[@"format_medium"] ?: _videos[@"adaptiveFormat_360p"];
-        if (url) {
-            [self playVideoFromURL:url];
+        NSURL * URL = _videos[@"format_medium"] ?: _videos[@"adaptiveFormat_360p"];
+        if (URL) {
+            [self playVideoFromURL:URL];
         }
     } else {
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Unable to load video" message:@"Can't find link for the video file on server" preferredStyle:UIAlertControllerStyleAlert];

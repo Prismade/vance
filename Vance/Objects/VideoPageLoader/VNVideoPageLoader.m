@@ -24,9 +24,9 @@
 
 
 - (void)loadWebPageWithVideoFromURLString:(NSString *)URLString completion:(VNVideoWebPageCompletionHandler)completionHandler {
-    NSURL * url = [NSURL URLWithString:URLString];
-    if (url) {
-        [self loadWebPageWithVideoFromURL:url completion:completionHandler];
+    NSURL * URL = [NSURL URLWithString:URLString];
+    if (URL) {
+        [self loadWebPageWithVideoFromURL:URL completion:completionHandler];
     } else {
         NSError * error = [VNErrorFactory wrongURLString];
         completionHandler(nil, error);
