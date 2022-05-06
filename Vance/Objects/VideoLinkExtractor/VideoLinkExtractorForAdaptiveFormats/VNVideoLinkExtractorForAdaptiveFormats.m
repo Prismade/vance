@@ -13,12 +13,12 @@
 @implementation VNVideoLinkExtractorForAdaptiveFormats
 
 
-+ (NSDictionary *)extractVideoLinksFromJSONObject:(NSDictionary *)JSONObject {
-    NSMutableDictionary * videoLinks = [[NSMutableDictionary alloc] init];
++ (NSDictionary<NSString *, NSURL *> *)extractVideoLinksFromJSONObject:(NSDictionary<NSString *, id> *)JSONObject {
+    NSMutableDictionary<NSString *, NSURL *> * videoLinks = [[NSMutableDictionary alloc] init];
 
-    NSArray * adaptiveFormats = (NSArray *)JSONObject[@"streamingData"][@"adaptiveFormats"];
+    NSArray<NSDictionary<NSString *, id> *> * adaptiveFormats = (NSArray<NSDictionary<NSString *, id> *> *)JSONObject[@"streamingData"][@"adaptiveFormats"];
     if (adaptiveFormats) {
-        for (NSDictionary * format in adaptiveFormats) {
+        for (NSDictionary<NSString *, id> * format in adaptiveFormats) {
             if (![format[@"mimeType"] hasPrefix:@"video/mp4"]) { continue; }
             NSString * key = [NSString stringWithFormat:@"adaptiveFormat_%@", (NSString *)format[@"qualityLabel"]];
             NSURL * object = [NSURL URLWithString:format[@"url"]];

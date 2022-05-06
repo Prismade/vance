@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol VNVideoLinkExtractor <NSObject>
 
-+ (NSDictionary *)extractVideoLinksFromJSONObject:(NSDictionary *)JSONObject;
++ (NSDictionary<NSString *, NSURL *> *)extractVideoLinksFromJSONObject:(NSDictionary<NSString *, id> *)JSONObject;
 
 @end
 

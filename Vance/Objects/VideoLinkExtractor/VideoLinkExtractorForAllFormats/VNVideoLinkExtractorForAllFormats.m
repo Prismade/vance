@@ -14,10 +14,10 @@
 @implementation VNVideoLinkExtractorForAllFormats
 
 
-+ (NSDictionary *)extractVideoLinksFromJSONObject:(NSDictionary *)JSONObject {
-    NSDictionary * formatsLinks = [VNVideoLinkExtractorForFormats extractVideoLinksFromJSONObject:JSONObject];
-    NSDictionary * adaptiveFormatLinks = [VNVideoLinkExtractorForAdaptiveFormats extractVideoLinksFromJSONObject:JSONObject];
-    NSMutableDictionary * links = [NSMutableDictionary dictionaryWithDictionary:formatsLinks];
++ (NSDictionary<NSString *, NSURL *> *)extractVideoLinksFromJSONObject:(NSDictionary<NSString *, id> *)JSONObject {
+    NSDictionary<NSString *, NSURL *> * formatsLinks = [VNVideoLinkExtractorForFormats extractVideoLinksFromJSONObject:JSONObject];
+    NSDictionary<NSString *, NSURL *> * adaptiveFormatLinks = [VNVideoLinkExtractorForAdaptiveFormats extractVideoLinksFromJSONObject:JSONObject];
+    NSMutableDictionary<NSString *, NSURL *> * links = [NSMutableDictionary dictionaryWithDictionary:formatsLinks];
     [links addEntriesFromDictionary:adaptiveFormatLinks];
     return [links copy];
 }

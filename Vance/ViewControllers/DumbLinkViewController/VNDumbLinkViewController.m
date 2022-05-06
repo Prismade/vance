@@ -19,7 +19,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 @property (nonatomic, nullable) AVQueuePlayer * player;
 @property (nonatomic, nullable) AVPlayerViewController * playerViewController;
-@property (nonatomic, nullable) NSDictionary * videos;
+@property (nonatomic, nullable) NSDictionary<NSString *, NSURL *> * videos;
 
 @end
 
@@ -172,7 +172,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 - (void)handleYouTubeURLString:(NSString *)URLString {
     __weak VNDumbLinkViewController * weak_self = self;
-    [_pageLoader loadWebPageWithVideoFromURLString:URLString completion:^(NSDictionary * _Nullable JSONObject, NSError * _Nullable error) {
+    [_pageLoader loadWebPageWithVideoFromURLString:URLString completion:^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weak_self handleWebPageResponseWithJSONObject:JSONObject error:error];
         });
@@ -182,7 +182,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 - (void)handleYouTubeURL:(NSURL *)URL {
     __weak VNDumbLinkViewController * weak_self = self;
-    [_pageLoader loadWebPageWithVideoFromURL:URL completion:^(NSDictionary * _Nullable JSONObject, NSError * _Nullable error) {
+    [_pageLoader loadWebPageWithVideoFromURL:URL completion:^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weak_self handleWebPageResponseWithJSONObject:JSONObject error:error];
         });
@@ -190,7 +190,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 }
 
 
-- (void)handleWebPageResponseWithJSONObject:(nullable NSDictionary *)JSONObject error:(nullable NSError *)error {
+- (void)handleWebPageResponseWithJSONObject:(nullable NSDictionary<NSString *, id> *)JSONObject error:(nullable NSError *)error {
     if (error) {
         NSLog(@"%@", error.localizedDescription);
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Unable to load video" message:@"An error occurred" preferredStyle:UIAlertControllerStyleAlert];

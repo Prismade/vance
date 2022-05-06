@@ -46,7 +46,7 @@
         if (error) {
             completionHandler(nil, error);
         } else if (data) {
-            NSDictionary * JSONObject = [weak_self handleSuccessFullWebPageLoadWithData:data];
+            NSDictionary<NSString *, id> * JSONObject = [weak_self handleSuccessFullWebPageLoadWithData:data];
             completionHandler(JSONObject, nil);
         } else {
             NSError * error = [VNErrorFactory emptyResponse];
@@ -71,12 +71,12 @@
 }
 
 
-- (NSDictionary *)handleSuccessFullWebPageLoadWithData:(NSData *)data {
+- (NSDictionary<NSString *, id> *)handleSuccessFullWebPageLoadWithData:(NSData *)data {
     NSString * HTML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSString * JSONString = [self extractJSONFromHTML:HTML];
     NSData * JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
     NSError * serializingError;
-    NSDictionary * JSONObject = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&serializingError];
+    NSDictionary<NSString *, id> * JSONObject = (NSDictionary<NSString *, id> *)[NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&serializingError];
     if (serializingError) {
         NSLog(@"%@", serializingError.localizedDescription);
     }
