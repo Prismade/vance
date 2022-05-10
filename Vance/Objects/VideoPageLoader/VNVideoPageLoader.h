@@ -10,6 +10,7 @@
 
 @class VNLinkValidator;
 
+typedef void(^VNDataTaskCompletionHandler)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable);
 typedef void(^VNVideoWebPageCompletionHandler)(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error);
 
 NS_ASSUME_NONNULL_BEGIN

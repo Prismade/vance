@@ -171,22 +171,27 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 
 - (void)handleYouTubeURLString:(NSString *)URLString {
-    __weak VNDumbLinkViewController * weak_self = self;
-    [_pageLoader loadWebPageWithVideoFromURLString:URLString completion:^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
+    __weak typeof(self) weak_self = self;
+    VNVideoWebPageCompletionHandler handler = ^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weak_self handleWebPageResponseWithJSONObject:JSONObject error:error];
+            __strong typeof(self) self = weak_self;
+            [self handleWebPageResponseWithJSONObject:JSONObject error:error];
         });
-    }];
+    };
+
+    [_pageLoader loadWebPageWithVideoFromURLString:URLString completion:handler];
 }
 
 
 - (void)handleYouTubeURL:(NSURL *)URL {
-    __weak VNDumbLinkViewController * weak_self = self;
-    [_pageLoader loadWebPageWithVideoFromURL:URL completion:^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
+    __weak typeof(self) weak_self = self;
+    VNVideoWebPageCompletionHandler handler = ^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weak_self handleWebPageResponseWithJSONObject:JSONObject error:error];
+            __strong typeof(self) self = weak_self;
+            [self handleWebPageResponseWithJSONObject:JSONObject error:error];
         });
-    }];
+    };
+    [_pageLoader loadWebPageWithVideoFromURL:URL completion:handler];
 }
 
 

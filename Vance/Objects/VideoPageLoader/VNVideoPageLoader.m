@@ -41,18 +41,21 @@
         return;
     }
 
-    __weak VNVideoPageLoader * weak_self = self;
-    NSURLSessionDataTask * task = [NSURLSession.sharedSession dataTaskWithURL:URL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    __weak typeof(self) weak_self = self;
+    VNDataTaskCompletionHandler handler = ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        __strong typeof(self) self = weak_self;
         if (error) {
             completionHandler(nil, error);
         } else if (data) {
-            NSDictionary<NSString *, id> * JSONObject = [weak_self handleSuccessFullWebPageLoadWithData:data];
+            NSDictionary<NSString *, id> * JSONObject = [self handleSuccessFullWebPageLoadWithData:data];
             completionHandler(JSONObject, nil);
         } else {
             NSError * error = [VNErrorFactory emptyResponse];
             completionHandler(nil, error);
         }
-    }];
+    };
+
+    NSURLSessionDataTask * task = [NSURLSession.sharedSession dataTaskWithURL:URL completionHandler:handler];
     [task resume];
 }
 
