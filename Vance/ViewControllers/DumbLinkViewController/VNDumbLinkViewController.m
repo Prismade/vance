@@ -70,7 +70,9 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 
 - (void)handleLinkTextFieldEditingChangedFromSender:(UITextField *)sender {
-    _openButton.enabled = sender.text && ![sender.text isEqualToString:@""];
+    BOOL shouldEnable = sender.text && ![sender.text isEqualToString:@""];
+    _openButton.enabled = shouldEnable;
+    _openStreamButton.enabled = shouldEnable;
 }
 
 
@@ -80,6 +82,15 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
     NSString * URLString = _linkTextField.text;
     [self handleYouTubeURLString:URLString];
+}
+
+
+- (void)handleOpenStreamButtonTapFromSender:(UIButton *)sender {
+    [self.view endEditing:YES];
+    _videos = nil;
+
+    NSString * URLString = _linkTextField.text;
+    [self handleYouTubeStreamURLString:URLString];
 }
 
 
@@ -113,6 +124,19 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
     };
 
     [_pageLoader loadWebPageWithVideoFromURLString:URLString completion:handler];
+}
+
+
+- (void)handleYouTubeStreamURLString:(NSString *)URLString {
+    __weak typeof(self) weak_self = self;
+    VNStreamWebPageCompletionHandler handler = ^(NSString * _Nullable playlistURL, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            __strong typeof(self) self = weak_self;
+            [self handleStreamWebPageResponseWithPlaylistURLString:playlistURL error:error];
+        });
+    };
+
+    [_pageLoader loadWebPageWithStreamFromURLString:URLString completion:handler];
 }
 
 

@@ -50,10 +50,20 @@
     self.openButton.enabled = NO;
     [self.view addSubview:self.openButton];
 
+    self.openStreamButton = [[UIButton alloc] init];
+    self.openStreamButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.openStreamButton.enabled = NO;
+    [self.view addSubview:self.openStreamButton];
+
     UIButtonConfiguration * openButtonConfiguration = [UIButtonConfiguration filledButtonConfiguration];
     openButtonConfiguration.title = @"Open";
     self.openButton.configuration = openButtonConfiguration;
     [self.openButton addTarget:self action:@selector(handleOpenButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButtonConfiguration * openStreamButtonConfiguration = [openButtonConfiguration copy];
+    openStreamButtonConfiguration.title = @"Open (Stream)";
+    self.openStreamButton.configuration = openStreamButtonConfiguration;
+    [self.openStreamButton addTarget:self action:@selector(handleOpenStreamButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     UIButtonConfiguration * pasteButtonConfiguration = [openButtonConfiguration copy];
     pasteButtonConfiguration.title = @"Use pasteboard";
@@ -99,6 +109,10 @@
         [self.openButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
         [self.openButton.topAnchor constraintEqualToAnchor:self.pasteStreamLinkButton.bottomAnchor constant:16.0],
         [self.openButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
+
+        [self.openStreamButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
+        [self.openStreamButton.topAnchor constraintEqualToAnchor:self.openButton.bottomAnchor constant:16.0],
+        [self.openStreamButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
 
         [self.playerViewController.view.leadingAnchor constraintEqualToAnchor:self.videoContainer.leadingAnchor],
         [self.playerViewController.view.topAnchor constraintEqualToAnchor:self.videoContainer.topAnchor],

@@ -27,6 +27,7 @@ FOUNDATION_EXPORT NSString * const VNURLIsUnavailableFromPasteboard;
 @property (nonatomic) UIButton * pasteButton;
 @property (nonatomic) UIButton * pasteStreamLinkButton;
 @property (nonatomic) UIButton * openButton;
+@property (nonatomic) UIButton * openStreamButton;
 
 @end
 
