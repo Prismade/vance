@@ -7,6 +7,7 @@
 //
 
 #import "VNDumbLinkViewController+Layout.h"
+#import "VNDumbLinkViewController+UITextFieldDelegate.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
@@ -32,6 +33,7 @@
     self.linkTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.linkTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.linkTextField.keyboardType = UIKeyboardTypeURL;
+    self.linkTextField.delegate = self;
     [self.linkTextField addTarget:self action:@selector(handleLinkTextFieldEditingChangedFromSender:) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:self.linkTextField];
 
