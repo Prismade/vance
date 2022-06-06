@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString * const VNURLIsUnavailableFromPasteboard;
 @property (nonatomic) UILabel * hintLabel;
 @property (nonatomic) UITextField * linkTextField;
 @property (nonatomic) UIButton * pasteButton;
+@property (nonatomic) UIButton * pasteStreamLinkButton;
 @property (nonatomic) UIButton * openButton;
 
 @end

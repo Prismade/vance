@@ -61,6 +61,11 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
     _pasteButton.enabled = NO;
     [self.view addSubview:_pasteButton];
 
+    _pasteStreamLinkButton = [[UIButton alloc] init];
+    _pasteStreamLinkButton.translatesAutoresizingMaskIntoConstraints = NO;
+    _pasteStreamLinkButton.enabled = NO;
+    [self.view addSubview:_pasteStreamLinkButton];
+
     _openButton = [[UIButton alloc] init];
     _openButton.translatesAutoresizingMaskIntoConstraints = NO;
     _openButton.enabled = NO;
@@ -75,6 +80,11 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
     pasteButtonConfiguration.title = @"Use pasteboard";
     _pasteButton.configuration = pasteButtonConfiguration;
     [_pasteButton addTarget:self action:@selector(handlePasteButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButtonConfiguration * pasteStreamLinkButtonConfiguration = [openButtonConfiguration copy];
+    pasteStreamLinkButtonConfiguration.title = @"Use pasteboard (Stream)";
+    _pasteStreamLinkButton.configuration = pasteStreamLinkButtonConfiguration;
+    [_pasteStreamLinkButton addTarget:self action:@selector(handlePasteStreamLinkButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     _playerViewController = [[AVPlayerViewController alloc] init];
     [self addChildViewController:_playerViewController];
@@ -115,8 +125,12 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
         [_pasteButton.topAnchor constraintEqualToAnchor:_linkTextField.bottomAnchor constant:16.0],
         [_pasteButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
 
+        [_pasteStreamLinkButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
+        [_pasteStreamLinkButton.topAnchor constraintEqualToAnchor:_pasteButton.bottomAnchor constant:16.0],
+        [_pasteStreamLinkButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
+
         [_openButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
-        [_openButton.topAnchor constraintEqualToAnchor:_pasteButton.bottomAnchor constant:16.0],
+        [_openButton.topAnchor constraintEqualToAnchor:_pasteStreamLinkButton.bottomAnchor constant:16.0],
         [_openButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
 
         [_playerViewController.view.leadingAnchor constraintEqualToAnchor:_videoContainer.leadingAnchor],
@@ -129,11 +143,13 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 - (void)handleURLIsAvailableInPasteboardNotification:(NSNotification *)notification {
     _pasteButton.enabled = YES;
+    _pasteStreamLinkButton.enabled = YES;
 }
 
 
 - (void)handleURLIsUnavailableInPasteboardNotification:(NSNotification *)notification {
     _pasteButton.enabled = NO;
+    _pasteStreamLinkButton.enabled = NO;
 }
 
 
@@ -170,6 +186,16 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 }
 
 
+- (void)handlePasteStreamLinkButtonTapFromSender:(UIButton *)sender {
+    NSURL * URLFromPasteboard = UIPasteboard.generalPasteboard.URL;
+    if (URLFromPasteboard) {
+        _linkTextField.text = URLFromPasteboard.absoluteString;
+        _openButton.enabled = NO;
+        [self handleYouTubeStreamURL:URLFromPasteboard];
+    }
+}
+
+
 - (void)handleYouTubeURLString:(NSString *)URLString {
     __weak typeof(self) weak_self = self;
     VNVideoWebPageCompletionHandler handler = ^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
@@ -195,6 +221,18 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 }
 
 
+- (void)handleYouTubeStreamURL:(NSURL *)URL {
+    __weak typeof(self) weak_self = self;
+    VNStreamWebPageCompletionHandler handler = ^(NSString * _Nullable playlistURL, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            __strong typeof(self) self = weak_self;
+            [self handleStreamWebPageResponseWithPlaylistURLString:playlistURL error:error];
+        });
+    };
+    [_pageLoader loadWebPageWithStreamFromURL:URL completion:handler];
+}
+
+
 - (void)handleWebPageResponseWithJSONObject:(nullable NSDictionary<NSString *, id> *)JSONObject error:(nullable NSError *)error {
     if (error) {
         NSLog(@"%@", error.localizedDescription);
@@ -212,6 +250,32 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
         }
     } else {
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Unable to load video" message:@"Can't find link for the video file on server" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okAction];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
+    }
+}
+
+
+- (void)handleStreamWebPageResponseWithPlaylistURLString:(nullable NSString *)playlistURLString error:(nullable NSError *)error {
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Unable to load stream" message:@"An error occured" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okAction];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
+    } else if (playlistURLString) {
+        _videos = @{};
+        NSURL * URL = [NSURL URLWithString:playlistURLString];
+        if (URL) {
+            [self playVideoFromURL:URL];
+        }
+    } else {
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Unable to load stream" message:@"Can't find link for the stream playlist on server" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:okAction];
         dispatch_async(dispatch_get_main_queue(), ^{
