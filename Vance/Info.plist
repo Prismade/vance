@@ -9,7 +9,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>LaunchScreenBackground</string>
+		<string>SystemBackgroundColor</string>
 	</dict>
 </dict>
 </plist>
