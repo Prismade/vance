@@ -20,6 +20,7 @@ FOUNDATION_EXPORT NSString * const VNURLIsUnavailableFromPasteboard;
 @interface VNDumbLinkViewController : UIViewController
 
 @property (nonatomic, nullable) VNVideoPageLoader * pageLoader;
+@property (nonatomic, nullable) AVPlayerViewController * playerViewController;
 @property (nonatomic) UIView * videoContainer;
 @property (nonatomic) UILabel * hintLabel;
 @property (nonatomic) UITextField * linkTextField;
