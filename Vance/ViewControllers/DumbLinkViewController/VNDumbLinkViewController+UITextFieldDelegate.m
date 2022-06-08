@@ -8,11 +8,14 @@
 
 #import "VNDumbLinkViewController+UITextFieldDelegate.h"
 
+
 @implementation VNDumbLinkViewController (UITextFieldDelegate)
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.linkTextField resignFirstResponder];
     return YES;
 }
+
 
 @end

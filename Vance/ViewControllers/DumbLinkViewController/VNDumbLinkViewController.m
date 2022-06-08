@@ -167,7 +167,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 - (void)handleWebPageResponseWithJSONObject:(nullable NSDictionary<NSString *, id> *)JSONObject error:(nullable NSError *)error {
     if (error) {
         NSLog(@"%@", error.localizedDescription);
-        [self presentAlertWithTitle:@"Unable to load video" message:@"An error occurred"];
+        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load video", nil) message:NSLocalizedString(@"An error occurred", nil)];
     } else if (JSONObject) {
         _videos = [VNVideoLinkExtractorForAllFormats extractVideoLinksFromJSONObject:JSONObject];
         NSURL * URL = _videos[@"format_medium"] ?: _videos[@"adaptiveFormat_360p"];
@@ -175,7 +175,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
             [self playVideoFromURL:URL];
         }
     } else {
-        [self presentAlertWithTitle:@"Unable to load video" message:@"Can't find link for the video file on server"];
+        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load video", nil) message:NSLocalizedString(@"Can't find link for the video file on server", nil)];
     }
 }
 
@@ -183,7 +183,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 - (void)handleStreamWebPageResponseWithPlaylistURLString:(nullable NSString *)playlistURLString error:(nullable NSError *)error {
     if (error) {
         NSLog(@"%@", error.localizedDescription);
-        [self presentAlertWithTitle:@"Unable to load stream" message:@"An error occured"];
+        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load stream", nil) message:NSLocalizedString(@"An error occured", nil)];
     } else if (playlistURLString) {
         _videos = @{};
         NSURL * URL = [NSURL URLWithString:playlistURLString];
@@ -191,7 +191,7 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
             [self playVideoFromURL:URL];
         }
     } else {
-        [self presentAlertWithTitle:@"Unable to load stream" message:@"Can't find link for the stream playlist on server"];
+        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load stream", nil) message:NSLocalizedString(@"Can't find link for the stream playlist on server", nil)];
     }
 }
 

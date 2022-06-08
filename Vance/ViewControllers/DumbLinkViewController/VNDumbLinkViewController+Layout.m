@@ -25,7 +25,7 @@
     self.hintLabel = [[UILabel alloc] init];
     self.hintLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.hintLabel.numberOfLines = 0;
-    self.hintLabel.text = @"Paste a link to a YouTube video here and hit the open button";
+    self.hintLabel.text = NSLocalizedString(@"Paste a link to a YouTube video here and hit the open button", nil);
     [self.view addSubview:self.hintLabel];
 
     self.linkTextField = [[UITextField alloc] init];
@@ -58,22 +58,22 @@
     [self.view addSubview:self.openStreamButton];
 
     UIButtonConfiguration * openButtonConfiguration = [UIButtonConfiguration filledButtonConfiguration];
-    openButtonConfiguration.title = @"Open";
+    openButtonConfiguration.title = NSLocalizedString(@"Open", nil);
     self.openButton.configuration = openButtonConfiguration;
     [self.openButton addTarget:self action:@selector(handleOpenButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     UIButtonConfiguration * openStreamButtonConfiguration = [openButtonConfiguration copy];
-    openStreamButtonConfiguration.title = @"Open (Stream)";
+    openStreamButtonConfiguration.title = NSLocalizedString(@"Open (Stream)", nil);
     self.openStreamButton.configuration = openStreamButtonConfiguration;
     [self.openStreamButton addTarget:self action:@selector(handleOpenStreamButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     UIButtonConfiguration * pasteButtonConfiguration = [openButtonConfiguration copy];
-    pasteButtonConfiguration.title = @"Use pasteboard";
+    pasteButtonConfiguration.title = NSLocalizedString(@"Use pasteboard", nil);
     self.pasteButton.configuration = pasteButtonConfiguration;
     [self.pasteButton addTarget:self action:@selector(handlePasteButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     UIButtonConfiguration * pasteStreamLinkButtonConfiguration = [openButtonConfiguration copy];
-    pasteStreamLinkButtonConfiguration.title = @"Use pasteboard (Stream)";
+    pasteStreamLinkButtonConfiguration.title = NSLocalizedString(@"Use pasteboard (Stream)", nil);
     self.pasteStreamLinkButton.configuration = pasteStreamLinkButtonConfiguration;
     [self.pasteStreamLinkButton addTarget:self action:@selector(handlePasteStreamLinkButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -122,6 +122,7 @@
         [self.playerViewController.view.bottomAnchor constraintEqualToAnchor:self.videoContainer.bottomAnchor]
     ]];
 }
+
 
 @end
 

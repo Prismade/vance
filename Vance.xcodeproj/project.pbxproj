@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24026ED72819DCD2006160B6 /* VNLinkValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24026ED62819DCD2006160B6 /* VNLinkValidator.m */; };
+		240A8681284FCC640036B0F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 240A8683284FCC640036B0F1 /* Localizable.strings */; };
 		243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 243829A928153CEB000EAB4C /* VNErrorFactory.m */; };
 		2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */; };
 		24E7AC00284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7ABFF284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		24026ED52819DCD2006160B6 /* VNLinkValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNLinkValidator.h; sourceTree = "<group>"; };
 		24026ED62819DCD2006160B6 /* VNLinkValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNLinkValidator.m; sourceTree = "<group>"; };
+		240A8682284FCC640036B0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		240A8684284FCC670036B0F1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		243829A828153CEB000EAB4C /* VNErrorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNErrorFactory.h; sourceTree = "<group>"; };
 		243829A928153CEB000EAB4C /* VNErrorFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNErrorFactory.m; sourceTree = "<group>"; };
 		243829AC28157F03000EAB4C /* VNVideoLinkExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractor.h; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 				242A0064280CB74600DCA7F5 /* ViewControllers */,
 				245814A12814A60900D21AA0 /* Objects */,
 				24F6C7ED280C70D50009B917 /* Assets.xcassets */,
+				240A8683284FCC640036B0F1 /* Localizable.strings */,
 				24F6C7F2280C70D50009B917 /* Info.plist */,
 			);
 			path = Vance;
@@ -246,6 +250,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 24F6C7D5280C70D20009B917;
 			productRefGroup = 24F6C7DF280C70D20009B917 /* Products */;
@@ -263,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F6C7EE280C70D50009B917 /* Assets.xcassets in Resources */,
+				240A8681284FCC640036B0F1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +294,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		240A8683284FCC640036B0F1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				240A8682284FCC640036B0F1 /* en */,
+				240A8684284FCC670036B0F1 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		24F6C7F5280C70D50009B917 /* Debug */ = {
@@ -413,7 +431,6 @@
 				INFOPLIST_FILE = Vance/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,6 +440,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.prismade.Vance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -441,7 +461,6 @@
 				INFOPLIST_FILE = Vance/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,6 +470,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.prismade.Vance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
