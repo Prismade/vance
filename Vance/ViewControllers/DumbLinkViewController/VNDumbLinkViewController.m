@@ -8,18 +8,14 @@
 
 #import "VNDumbLinkViewController.h"
 #import "VNDumbLinkViewController+Layout.h"
-#import "VNVideoPageLoader.h"
-#import "VNVideoLinkExtractorForAllFormats.h"
-
-
-NSString * const VNURLIsAvailableFromPasteboard = @"VNURLIsAvailableFromPasteboard";
-NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPasteboard";
+#import "VNDumbLinkViewController+UITextFieldDelegate.h"
+#import "VNMediaSource.h"
+#import "NSNotification+Name.h"
 
 
 @interface VNDumbLinkViewController ()
 
 @property (nonatomic, nullable) AVQueuePlayer * player;
-@property (nonatomic, nullable) NSDictionary<NSString *, NSURL *> * videos;
 
 @end
 
@@ -43,24 +39,39 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setLayoutConstraints];
-    _player = [AVQueuePlayer queuePlayerWithItems:@[]];
-    _player.audiovisualBackgroundPlaybackPolicy = AVPlayerAudiovisualBackgroundPlaybackPolicyContinuesIfPossible;
-    _playerViewController.player = _player;
-    _videos = nil;
+    [self addObserversForNotifications];
+    [self addTargetAndActionForControlsEvents];
+    [self preparePlayer];
+}
+
+
+- (void)addObserversForNotifications {
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsAvailableInPasteboardNotification:) name:VNURLIsAvailableFromPasteboard object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(handleURLIsUnavailableInPasteboardNotification:) name:VNURLIsUnavailableFromPasteboard object:nil];
 }
 
 
+- (void)addTargetAndActionForControlsEvents {
+    [_linkTextField addTarget:self action:@selector(handleLinkTextFieldEditingChangedFromSender:) forControlEvents:UIControlEventEditingChanged];
+    [_openButton addTarget:self action:@selector(handleOpenButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
+    [_pasteButton addTarget:self action:@selector(handlePasteButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+- (void)preparePlayer {
+    _player = [AVQueuePlayer queuePlayerWithItems:@[]];
+    _player.audiovisualBackgroundPlaybackPolicy = AVPlayerAudiovisualBackgroundPlaybackPolicyContinuesIfPossible;
+    _playerViewController.player = _player;
+}
+
+
 - (void)handleURLIsAvailableInPasteboardNotification:(NSNotification *)notification {
     _pasteButton.enabled = YES;
-    _pasteStreamLinkButton.enabled = YES;
 }
 
 
 - (void)handleURLIsUnavailableInPasteboardNotification:(NSNotification *)notification {
     _pasteButton.enabled = NO;
-    _pasteStreamLinkButton.enabled = NO;
 }
 
 
@@ -70,27 +81,19 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 
 
 - (void)handleLinkTextFieldEditingChangedFromSender:(UITextField *)sender {
-    BOOL shouldEnable = sender.text && ![sender.text isEqualToString:@""];
-    _openButton.enabled = shouldEnable;
-    _openStreamButton.enabled = shouldEnable;
+    _openButton.enabled = sender.text && ![sender.text isEqualToString:@""];
 }
 
 
 - (void)handleOpenButtonTapFromSender:(UIButton *)sender {
     [self.view endEditing:YES];
-    _videos = nil;
-
     NSString * URLString = _linkTextField.text;
-    [self handleYouTubeURLString:URLString];
-}
-
-
-- (void)handleOpenStreamButtonTapFromSender:(UIButton *)sender {
-    [self.view endEditing:YES];
-    _videos = nil;
-
-    NSString * URLString = _linkTextField.text;
-    [self handleYouTubeStreamURLString:URLString];
+    NSURL * URL = [NSURL URLWithString:URLString];
+    if (URL) {
+        [self handleYouTubeURL:URL];
+    } else {
+        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load video", nil) message:NSLocalizedString(@"An error occurred", nil)];
+    }
 }
 
 
@@ -104,95 +107,17 @@ NSString * const VNURLIsUnavailableFromPasteboard = @"VNURLIsUnavailableFromPast
 }
 
 
-- (void)handlePasteStreamLinkButtonTapFromSender:(UIButton *)sender {
-    NSURL * URLFromPasteboard = UIPasteboard.generalPasteboard.URL;
-    if (URLFromPasteboard) {
-        _linkTextField.text = URLFromPasteboard.absoluteString;
-        _openButton.enabled = NO;
-        [self handleYouTubeStreamURL:URLFromPasteboard];
-    }
-}
-
-
-- (void)handleYouTubeURLString:(NSString *)URLString {
-    __weak typeof(self) weak_self = self;
-    VNVideoWebPageCompletionHandler handler = ^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            __strong typeof(self) self = weak_self;
-            [self handleWebPageResponseWithJSONObject:JSONObject error:error];
-        });
-    };
-
-    [_pageLoader loadWebPageWithVideoFromURLString:URLString completion:handler];
-}
-
-
-- (void)handleYouTubeStreamURLString:(NSString *)URLString {
-    __weak typeof(self) weak_self = self;
-    VNStreamWebPageCompletionHandler handler = ^(NSString * _Nullable playlistURL, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            __strong typeof(self) self = weak_self;
-            [self handleStreamWebPageResponseWithPlaylistURLString:playlistURL error:error];
-        });
-    };
-
-    [_pageLoader loadWebPageWithStreamFromURLString:URLString completion:handler];
-}
-
-
 - (void)handleYouTubeURL:(NSURL *)URL {
     __weak typeof(self) weak_self = self;
-    VNVideoWebPageCompletionHandler handler = ^(NSDictionary<NSString *, id> * _Nullable JSONObject, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            __strong typeof(self) self = weak_self;
-            [self handleWebPageResponseWithJSONObject:JSONObject error:error];
-        });
-    };
-    [_pageLoader loadWebPageWithVideoFromURL:URL completion:handler];
-}
-
-
-- (void)handleYouTubeStreamURL:(NSURL *)URL {
-    __weak typeof(self) weak_self = self;
-    VNStreamWebPageCompletionHandler handler = ^(NSString * _Nullable playlistURL, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            __strong typeof(self) self = weak_self;
-            [self handleStreamWebPageResponseWithPlaylistURLString:playlistURL error:error];
-        });
-    };
-    [_pageLoader loadWebPageWithStreamFromURL:URL completion:handler];
-}
-
-
-- (void)handleWebPageResponseWithJSONObject:(nullable NSDictionary<NSString *, id> *)JSONObject error:(nullable NSError *)error {
-    if (error) {
-        NSLog(@"%@", error.localizedDescription);
-        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load video", nil) message:NSLocalizedString(@"An error occurred", nil)];
-    } else if (JSONObject) {
-        _videos = [VNVideoLinkExtractorForAllFormats extractVideoLinksFromJSONObject:JSONObject];
-        NSURL * URL = _videos[@"format_medium"] ?: _videos[@"adaptiveFormat_360p"];
-        if (URL) {
+    [VNMediaSource mediaURLforYouTubePageURL:URL completionHandler:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+        __strong typeof(self) self = weak_self;
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+            [self presentAlertWithTitle:NSLocalizedString(@"Unable to load video", nil) message:NSLocalizedString(@"An error occurred", nil)];
+        } else {
             [self playVideoFromURL:URL];
         }
-    } else {
-        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load video", nil) message:NSLocalizedString(@"Can't find link for the video file on server", nil)];
-    }
-}
-
-
-- (void)handleStreamWebPageResponseWithPlaylistURLString:(nullable NSString *)playlistURLString error:(nullable NSError *)error {
-    if (error) {
-        NSLog(@"%@", error.localizedDescription);
-        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load stream", nil) message:NSLocalizedString(@"An error occured", nil)];
-    } else if (playlistURLString) {
-        _videos = @{};
-        NSURL * URL = [NSURL URLWithString:playlistURLString];
-        if (URL) {
-            [self playVideoFromURL:URL];
-        }
-    } else {
-        [self presentAlertWithTitle:NSLocalizedString(@"Unable to load stream", nil) message:NSLocalizedString(@"Can't find link for the stream playlist on server", nil)];
-    }
+    }];
 }
 
 

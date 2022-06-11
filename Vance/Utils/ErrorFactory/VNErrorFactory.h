@@ -8,18 +8,23 @@
 
 @import Foundation;
 
+typedef NS_ENUM(NSInteger, VNErrorCode) {
+    VNErrorCodeWrongURLString,
+    VNErrorCodeEmptyResponse,
+    VNErrorCodeYouTubeLinkFormatNotSupported,
+    VNErrorCodeMediaNotFound
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT NSString * const VNErrorDomain;
-FOUNDATION_EXPORT const NSInteger VNWrongURLStringErrorCode;
-FOUNDATION_EXPORT const NSInteger VNEmptyResponseErrorCode;
-FOUNDATION_EXPORT const NSInteger VNYouTubeLinkFormatNotSupported;
 
 @interface VNErrorFactory : NSObject
 
 + (NSError *)wrongURLString;
 + (NSError *)emptyResponse;
-+ (NSError *)wrongYouTubeURLFormat;
++ (NSError *)wrongYouTubePageURLFormat;
++ (NSError *)mediaNotFound;
 
 @end
 

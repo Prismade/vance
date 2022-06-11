@@ -34,7 +34,6 @@
     self.linkTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.linkTextField.keyboardType = UIKeyboardTypeURL;
     self.linkTextField.delegate = self;
-    [self.linkTextField addTarget:self action:@selector(handleLinkTextFieldEditingChangedFromSender:) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:self.linkTextField];
 
     self.pasteButton = [[UIButton alloc] init];
@@ -42,40 +41,18 @@
     self.pasteButton.enabled = NO;
     [self.view addSubview:self.pasteButton];
 
-    self.pasteStreamLinkButton = [[UIButton alloc] init];
-    self.pasteStreamLinkButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.pasteStreamLinkButton.enabled = NO;
-    [self.view addSubview:self.pasteStreamLinkButton];
-
     self.openButton = [[UIButton alloc] init];
     self.openButton.translatesAutoresizingMaskIntoConstraints = NO;
     self.openButton.enabled = NO;
     [self.view addSubview:self.openButton];
 
-    self.openStreamButton = [[UIButton alloc] init];
-    self.openStreamButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.openStreamButton.enabled = NO;
-    [self.view addSubview:self.openStreamButton];
-
     UIButtonConfiguration * openButtonConfiguration = [UIButtonConfiguration filledButtonConfiguration];
     openButtonConfiguration.title = NSLocalizedString(@"Open", nil);
     self.openButton.configuration = openButtonConfiguration;
-    [self.openButton addTarget:self action:@selector(handleOpenButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
-
-    UIButtonConfiguration * openStreamButtonConfiguration = [openButtonConfiguration copy];
-    openStreamButtonConfiguration.title = NSLocalizedString(@"Open (Stream)", nil);
-    self.openStreamButton.configuration = openStreamButtonConfiguration;
-    [self.openStreamButton addTarget:self action:@selector(handleOpenStreamButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     UIButtonConfiguration * pasteButtonConfiguration = [openButtonConfiguration copy];
     pasteButtonConfiguration.title = NSLocalizedString(@"Use pasteboard", nil);
     self.pasteButton.configuration = pasteButtonConfiguration;
-    [self.pasteButton addTarget:self action:@selector(handlePasteButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
-
-    UIButtonConfiguration * pasteStreamLinkButtonConfiguration = [openButtonConfiguration copy];
-    pasteStreamLinkButtonConfiguration.title = NSLocalizedString(@"Use pasteboard (Stream)", nil);
-    self.pasteStreamLinkButton.configuration = pasteStreamLinkButtonConfiguration;
-    [self.pasteStreamLinkButton addTarget:self action:@selector(handlePasteStreamLinkButtonTapFromSender:) forControlEvents:UIControlEventTouchUpInside];
 
     self.playerViewController = [[AVPlayerViewController alloc] init];
     [self addChildViewController:self.playerViewController];
@@ -104,17 +81,9 @@
         [self.pasteButton.topAnchor constraintEqualToAnchor:self.linkTextField.bottomAnchor constant:16.0],
         [self.pasteButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
 
-        [self.pasteStreamLinkButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
-        [self.pasteStreamLinkButton.topAnchor constraintEqualToAnchor:self.pasteButton.bottomAnchor constant:16.0],
-        [self.pasteStreamLinkButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
-
         [self.openButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
-        [self.openButton.topAnchor constraintEqualToAnchor:self.pasteStreamLinkButton.bottomAnchor constant:16.0],
+        [self.openButton.topAnchor constraintEqualToAnchor:self.pasteButton.bottomAnchor constant:16.0],
         [self.openButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
-
-        [self.openStreamButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:16.0],
-        [self.openStreamButton.topAnchor constraintEqualToAnchor:self.openButton.bottomAnchor constant:16.0],
-        [self.openStreamButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-16.0],
 
         [self.playerViewController.view.leadingAnchor constraintEqualToAnchor:self.videoContainer.leadingAnchor],
         [self.playerViewController.view.topAnchor constraintEqualToAnchor:self.videoContainer.topAnchor],

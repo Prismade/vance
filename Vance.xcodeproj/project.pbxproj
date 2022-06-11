@@ -7,43 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24026ED72819DCD2006160B6 /* VNLinkValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24026ED62819DCD2006160B6 /* VNLinkValidator.m */; };
+		24026ED72819DCD2006160B6 /* VNYouTubePageURLValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 24026ED62819DCD2006160B6 /* VNYouTubePageURLValidator.m */; };
+		2404398328513238006145FE /* NSNotification+Name.m in Sources */ = {isa = PBXBuildFile; fileRef = 2404398228513238006145FE /* NSNotification+Name.m */; };
+		2404398B28513CB8006145FE /* VNMediaSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2404398A28513CB8006145FE /* VNMediaSource.m */; };
+		2404398D285145D7006145FE /* VNMediaURLExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2404398C285145D7006145FE /* VNMediaURLExtractor.m */; };
 		240A8681284FCC640036B0F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 240A8683284FCC640036B0F1 /* Localizable.strings */; };
 		243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 243829A928153CEB000EAB4C /* VNErrorFactory.m */; };
 		2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */; };
 		24E7AC00284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7ABFF284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m */; };
 		24E7AC03284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7AC02284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m */; };
-		24E8A05E2815814100759EA3 /* VNVideoLinkExtractorForFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */; };
-		24E8A066281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A065281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m */; };
-		24E8A06A28159AC900759EA3 /* VNVideoPageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */; };
-		24E8A06F2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */; };
+		24E8A06A28159AC900759EA3 /* VNYouTubePageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06928159AC900759EA3 /* VNYouTubePageLoader.m */; };
 		24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7E2280C70D20009B917 /* VNAppDelegate.m */; };
 		24F6C7EE280C70D50009B917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F6C7ED280C70D50009B917 /* Assets.xcassets */; };
 		24F6C7F4280C70D50009B917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C7F3280C70D50009B917 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24026ED52819DCD2006160B6 /* VNLinkValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNLinkValidator.h; sourceTree = "<group>"; };
-		24026ED62819DCD2006160B6 /* VNLinkValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNLinkValidator.m; sourceTree = "<group>"; };
+		24026ED52819DCD2006160B6 /* VNYouTubePageURLValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNYouTubePageURLValidator.h; sourceTree = "<group>"; };
+		24026ED62819DCD2006160B6 /* VNYouTubePageURLValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNYouTubePageURLValidator.m; sourceTree = "<group>"; };
+		2404398128513238006145FE /* NSNotification+Name.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotification+Name.h"; sourceTree = "<group>"; };
+		2404398228513238006145FE /* NSNotification+Name.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+Name.m"; sourceTree = "<group>"; };
+		2404398928513CB8006145FE /* VNMediaSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNMediaSource.h; sourceTree = "<group>"; };
+		2404398A28513CB8006145FE /* VNMediaSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNMediaSource.m; sourceTree = "<group>"; };
+		2404398C285145D7006145FE /* VNMediaURLExtractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNMediaURLExtractor.m; sourceTree = "<group>"; };
 		240A8682284FCC640036B0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		240A8684284FCC670036B0F1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		243829A828153CEB000EAB4C /* VNErrorFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNErrorFactory.h; sourceTree = "<group>"; };
 		243829A928153CEB000EAB4C /* VNErrorFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNErrorFactory.m; sourceTree = "<group>"; };
-		243829AC28157F03000EAB4C /* VNVideoLinkExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractor.h; sourceTree = "<group>"; };
+		243829AC28157F03000EAB4C /* VNMediaURLExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNMediaURLExtractor.h; sourceTree = "<group>"; };
 		2458149B281411C900D21AA0 /* VNDumbLinkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNDumbLinkViewController.h; sourceTree = "<group>"; };
 		2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNDumbLinkViewController.m; sourceTree = "<group>"; };
 		24E7ABFE284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VNDumbLinkViewController+Layout.h"; sourceTree = "<group>"; };
 		24E7ABFF284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VNDumbLinkViewController+Layout.m"; sourceTree = "<group>"; };
 		24E7AC01284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VNDumbLinkViewController+UITextFieldDelegate.h"; sourceTree = "<group>"; };
 		24E7AC02284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VNDumbLinkViewController+UITextFieldDelegate.m"; sourceTree = "<group>"; };
-		24E8A05C2815814100759EA3 /* VNVideoLinkExtractorForFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractorForFormats.h; sourceTree = "<group>"; };
-		24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoLinkExtractorForFormats.m; sourceTree = "<group>"; };
-		24E8A064281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractorForAdaptiveFormats.h; sourceTree = "<group>"; };
-		24E8A065281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoLinkExtractorForAdaptiveFormats.m; sourceTree = "<group>"; };
-		24E8A06828159AC900759EA3 /* VNVideoPageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoPageLoader.h; sourceTree = "<group>"; };
-		24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoPageLoader.m; sourceTree = "<group>"; };
-		24E8A06D2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNVideoLinkExtractorForAllFormats.h; sourceTree = "<group>"; };
-		24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNVideoLinkExtractorForAllFormats.m; sourceTree = "<group>"; };
+		24E8A06828159AC900759EA3 /* VNYouTubePageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNYouTubePageLoader.h; sourceTree = "<group>"; };
+		24E8A06928159AC900759EA3 /* VNYouTubePageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNYouTubePageLoader.m; sourceTree = "<group>"; };
 		24F6C7DE280C70D20009B917 /* Vance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F6C7E1280C70D20009B917 /* VNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNAppDelegate.h; sourceTree = "<group>"; };
 		24F6C7E2280C70D20009B917 /* VNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNAppDelegate.m; sourceTree = "<group>"; };
@@ -63,13 +62,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24026ED42819DCC4006160B6 /* LinkValidator */ = {
+		24026ED42819DCC4006160B6 /* YouTubePageURLValidator */ = {
 			isa = PBXGroup;
 			children = (
-				24026ED52819DCD2006160B6 /* VNLinkValidator.h */,
-				24026ED62819DCD2006160B6 /* VNLinkValidator.m */,
+				24026ED52819DCD2006160B6 /* VNYouTubePageURLValidator.h */,
+				24026ED62819DCD2006160B6 /* VNYouTubePageURLValidator.m */,
 			);
-			path = LinkValidator;
+			path = YouTubePageURLValidator;
+			sourceTree = "<group>";
+		};
+		2404397D28513155006145FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				243829A728153CD3000EAB4C /* ErrorFactory */,
+				2404398E28514D40006145FE /* Convenience */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		24043984285137E2006145FE /* MediaSource */ = {
+			isa = PBXGroup;
+			children = (
+				2404398928513CB8006145FE /* VNMediaSource.h */,
+				2404398A28513CB8006145FE /* VNMediaSource.m */,
+			);
+			path = MediaSource;
+			sourceTree = "<group>";
+		};
+		2404398E28514D40006145FE /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				2404398128513238006145FE /* NSNotification+Name.h */,
+				2404398228513238006145FE /* NSNotification+Name.m */,
+			);
+			path = Convenience;
 			sourceTree = "<group>";
 		};
 		242A004D280CA49100DCA7F5 /* Application */ = {
@@ -123,59 +149,30 @@
 		245814A12814A60900D21AA0 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				243829A728153CD3000EAB4C /* ErrorFactory */,
-				24026ED42819DCC4006160B6 /* LinkValidator */,
-				24E8A06728159AB200759EA3 /* VideoPageLoader */,
-				24E8A06B28159F6B00759EA3 /* VideoLinkExtractor */,
+				24026ED42819DCC4006160B6 /* YouTubePageURLValidator */,
+				24E8A06728159AB200759EA3 /* YouTubePageLoader */,
+				24E8A06B28159F6B00759EA3 /* MediaURLExtractor */,
+				24043984285137E2006145FE /* MediaSource */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
 		};
-		24E8A05B281580FD00759EA3 /* VideoLinkExtractorForFormats */ = {
+		24E8A06728159AB200759EA3 /* YouTubePageLoader */ = {
 			isa = PBXGroup;
 			children = (
-				24E8A05C2815814100759EA3 /* VNVideoLinkExtractorForFormats.h */,
-				24E8A05D2815814100759EA3 /* VNVideoLinkExtractorForFormats.m */,
+				24E8A06828159AC900759EA3 /* VNYouTubePageLoader.h */,
+				24E8A06928159AC900759EA3 /* VNYouTubePageLoader.m */,
 			);
-			path = VideoLinkExtractorForFormats;
+			path = YouTubePageLoader;
 			sourceTree = "<group>";
 		};
-		24E8A063281591A900759EA3 /* VideoLinkExtractorForAdaptiveFormats */ = {
+		24E8A06B28159F6B00759EA3 /* MediaURLExtractor */ = {
 			isa = PBXGroup;
 			children = (
-				24E8A064281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.h */,
-				24E8A065281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m */,
+				243829AC28157F03000EAB4C /* VNMediaURLExtractor.h */,
+				2404398C285145D7006145FE /* VNMediaURLExtractor.m */,
 			);
-			path = VideoLinkExtractorForAdaptiveFormats;
-			sourceTree = "<group>";
-		};
-		24E8A06728159AB200759EA3 /* VideoPageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				24E8A06828159AC900759EA3 /* VNVideoPageLoader.h */,
-				24E8A06928159AC900759EA3 /* VNVideoPageLoader.m */,
-			);
-			path = VideoPageLoader;
-			sourceTree = "<group>";
-		};
-		24E8A06B28159F6B00759EA3 /* VideoLinkExtractor */ = {
-			isa = PBXGroup;
-			children = (
-				243829AC28157F03000EAB4C /* VNVideoLinkExtractor.h */,
-				24E8A05B281580FD00759EA3 /* VideoLinkExtractorForFormats */,
-				24E8A063281591A900759EA3 /* VideoLinkExtractorForAdaptiveFormats */,
-				24E8A06C2815A1CB00759EA3 /* VideoLinkExtractorForAllFormats */,
-			);
-			path = VideoLinkExtractor;
-			sourceTree = "<group>";
-		};
-		24E8A06C2815A1CB00759EA3 /* VideoLinkExtractorForAllFormats */ = {
-			isa = PBXGroup;
-			children = (
-				24E8A06D2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.h */,
-				24E8A06E2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m */,
-			);
-			path = VideoLinkExtractorForAllFormats;
+			path = MediaURLExtractor;
 			sourceTree = "<group>";
 		};
 		24F6C7D5280C70D20009B917 = {
@@ -200,6 +197,7 @@
 				242A004D280CA49100DCA7F5 /* Application */,
 				242A0064280CB74600DCA7F5 /* ViewControllers */,
 				245814A12814A60900D21AA0 /* Objects */,
+				2404397D28513155006145FE /* Utils */,
 				24F6C7ED280C70D50009B917 /* Assets.xcassets */,
 				240A8683284FCC640036B0F1 /* Localizable.strings */,
 				24F6C7F2280C70D50009B917 /* Info.plist */,
@@ -279,17 +277,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24E8A06A28159AC900759EA3 /* VNVideoPageLoader.m in Sources */,
+				24E8A06A28159AC900759EA3 /* VNYouTubePageLoader.m in Sources */,
+				2404398D285145D7006145FE /* VNMediaURLExtractor.m in Sources */,
+				2404398328513238006145FE /* NSNotification+Name.m in Sources */,
 				243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */,
 				24E7AC03284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m in Sources */,
-				24026ED72819DCD2006160B6 /* VNLinkValidator.m in Sources */,
-				24E8A05E2815814100759EA3 /* VNVideoLinkExtractorForFormats.m in Sources */,
+				2404398B28513CB8006145FE /* VNMediaSource.m in Sources */,
+				24026ED72819DCD2006160B6 /* VNYouTubePageURLValidator.m in Sources */,
 				24E7AC00284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m in Sources */,
 				24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */,
 				24F6C7F4280C70D50009B917 /* main.m in Sources */,
-				24E8A066281591CD00759EA3 /* VNVideoLinkExtractorForAdaptiveFormats.m in Sources */,
 				2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */,
-				24E8A06F2815A1E200759EA3 /* VNVideoLinkExtractorForAllFormats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,28 +7,11 @@
 //
 
 #import "VNAppDelegate.h"
-#import "VNLinkValidator.h"
 #import "VNDumbLinkViewController.h"
-#import "VNVideoPageLoader.h"
-
-
-@interface VNAppDelegate ()
-
-@property (nonatomic) VNLinkValidator * linkValidator;
-
-@end
+#import "NSNotification+Name.h"
 
 
 @implementation VNAppDelegate
-
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _linkValidator = [[VNLinkValidator alloc] init];
-    }
-    return self;
-}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
@@ -66,7 +49,6 @@
 
 - (void)openDumbLinkViewController {
     VNDumbLinkViewController * viewController = [[VNDumbLinkViewController alloc] init];
-    viewController.pageLoader = [[VNVideoPageLoader alloc] initWithLinkValidator:_linkValidator];
     _window.rootViewController = viewController;
     [_window makeKeyAndVisible];
 }
