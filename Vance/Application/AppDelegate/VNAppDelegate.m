@@ -7,50 +7,16 @@
 //
 
 #import "VNAppDelegate.h"
-#import "VNDumbLinkViewController.h"
-#import "NSNotification+Name.h"
 
 
 @implementation VNAppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
-    _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    [self setupAudioSession];
-    [self openDumbLinkViewController];
-    [self checkPasteboardForURLAndPostNotification];
-    return YES;
-}
+#pragma mark - UISceneSession lifecycle
 
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [self checkPasteboardForURLAndPostNotification];
-}
-
-
-- (void)checkPasteboardForURLAndPostNotification {
-    if (UIPasteboard.generalPasteboard.hasURLs) {
-        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsAvailableFromPasteboard object:self];
-    } else {
-        [NSNotificationCenter.defaultCenter postNotificationName:VNURLIsUnavailableFromPasteboard object:self];
-    }
-}
-
-
-- (void)setupAudioSession {
-    AVAudioSession * session = AVAudioSession.sharedInstance;
-    NSError * error;
-    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
-    if (error) {
-        NSLog(@"%@", error.localizedDescription);
-    }
-}
-
-
-- (void)openDumbLinkViewController {
-    VNDumbLinkViewController * viewController = [[VNDumbLinkViewController alloc] init];
-    _window.rootViewController = viewController;
-    [_window makeKeyAndVisible];
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
 

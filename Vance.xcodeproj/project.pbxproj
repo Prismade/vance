@@ -14,6 +14,7 @@
 		240A8681284FCC640036B0F1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 240A8683284FCC640036B0F1 /* Localizable.strings */; };
 		243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 243829A928153CEB000EAB4C /* VNErrorFactory.m */; };
 		2458149D281411C900D21AA0 /* VNDumbLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */; };
+		247B0B9D286117B100CCC2BD /* VNSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 247B0B9C286117B100CCC2BD /* VNSceneDelegate.m */; };
 		24E7AC00284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7ABFF284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m */; };
 		24E7AC03284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7AC02284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m */; };
 		24E8A06A28159AC900759EA3 /* VNYouTubePageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E8A06928159AC900759EA3 /* VNYouTubePageLoader.m */; };
@@ -37,6 +38,8 @@
 		243829AC28157F03000EAB4C /* VNMediaURLExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNMediaURLExtractor.h; sourceTree = "<group>"; };
 		2458149B281411C900D21AA0 /* VNDumbLinkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNDumbLinkViewController.h; sourceTree = "<group>"; };
 		2458149C281411C900D21AA0 /* VNDumbLinkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNDumbLinkViewController.m; sourceTree = "<group>"; };
+		247B0B9B286117B100CCC2BD /* VNSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNSceneDelegate.h; sourceTree = "<group>"; };
+		247B0B9C286117B100CCC2BD /* VNSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNSceneDelegate.m; sourceTree = "<group>"; };
 		24E7ABFE284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VNDumbLinkViewController+Layout.h"; sourceTree = "<group>"; };
 		24E7ABFF284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VNDumbLinkViewController+Layout.m"; sourceTree = "<group>"; };
 		24E7AC01284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VNDumbLinkViewController+UITextFieldDelegate.h"; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		242A004D280CA49100DCA7F5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				247B0B9A2861179200CCC2BD /* SceneDelegate */,
 				242A004E280CA4B000DCA7F5 /* AppDelegate */,
 				24F6C7F3280C70D50009B917 /* main.m */,
 			);
@@ -155,6 +159,15 @@
 				24043984285137E2006145FE /* MediaSource */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		247B0B9A2861179200CCC2BD /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				247B0B9B286117B100CCC2BD /* VNSceneDelegate.h */,
+				247B0B9C286117B100CCC2BD /* VNSceneDelegate.m */,
+			);
+			path = SceneDelegate;
 			sourceTree = "<group>";
 		};
 		24E8A06728159AB200759EA3 /* YouTubePageLoader */ = {
@@ -283,6 +296,8 @@
 				243829AA28153CEB000EAB4C /* VNErrorFactory.m in Sources */,
 				24E7AC03284E133F00ADDC33 /* VNDumbLinkViewController+UITextFieldDelegate.m in Sources */,
 				2404398B28513CB8006145FE /* VNMediaSource.m in Sources */,
+				247B0B9D286117B100CCC2BD /* VNSceneDelegate.m in Sources */,
+				247B0B9628610E5400CCC2BD /* VNVideoCellModel.m in Sources */,
 				24026ED72819DCD2006160B6 /* VNYouTubePageURLValidator.m in Sources */,
 				24E7AC00284DEA7300ADDC33 /* VNDumbLinkViewController+Layout.m in Sources */,
 				24F6C7E3280C70D20009B917 /* VNAppDelegate.m in Sources */,

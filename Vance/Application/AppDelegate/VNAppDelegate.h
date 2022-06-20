@@ -7,13 +7,10 @@
 //
 
 @import UIKit;
-@import AVFoundation;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VNAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow * window;
 
 @end
 
