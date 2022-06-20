@@ -26,13 +26,13 @@
         if (error) {
             completionHandler(nil, error);
         } else {
-            NSDictionary<NSString *, NSURL *> * URLs = [VNMediaURLExtractor extractMediaURLsFromHTML:HTML];
             NSURL * mediaURL = [VNMediaURLExtractor extractM3U8MediaPlaylistURLFromHTML:HTML];
             if (mediaURL) {
                 completionHandler(mediaURL, nil);
                 return;
             }
             
+            NSDictionary<NSString *, NSURL *> * URLs = [VNMediaURLExtractor extractMediaURLsFromHTML:HTML];
             mediaURL = URLs[@"format_medium"] ?: URLs[@"adaptiveFormat_360p"];
             if (mediaURL) {
                 completionHandler(mediaURL, nil);
